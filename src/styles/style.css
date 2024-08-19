@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container-fluid {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.username-group {
+  min-width: 10rem;
+  max-width: 20rem;
+  width: 100%;
+}
+
+.game-table {
+  width: calc(24rem + (2 * .5rem));
+  height: calc(24rem + (2 * .5rem));
+  background-color: #ddd;
+}
+
+.box {  
+  width: calc(100% / 3);
+  height: calc(100% / 3);
+  border: .125rem solid #222;
+}
+
+label.hidden-input-label.player-1 {
+  color: #b11800;
+}
+
+label.hidden-input-label.player-2 {
+  color: #0300b9;
+}
+
+label.hidden-input-label {
+  font-size: 5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.available-box ~ label {
+  cursor: pointer;
+  color: #222;
+}
+
+.available-box:disabled ~ label {
+  cursor: default;
+} 
+
+.box:first-child {
+  border-left: none;
+  border-top: none;
+}
+
+.box:nth-child(2) {
+  border-top: none;
+}
+
+.box:nth-child(3) {
+  border-top: none;
+  border-right: none;
+}
+
+.box:nth-child(4) {
+  border-left: none;
+}
+
+.box:nth-child(6) {
+  border-right: none;
+}
+
+.box:nth-child(7) {
+  border-left: none;
+  border-bottom: none;
+}
+
+.box:nth-child(8) {
+  border-bottom: none;
+}
+
+.box:last-child {
+  border-right: none;
+  border-bottom: none;
+}
