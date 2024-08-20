@@ -11,7 +11,7 @@
 
 .username-group {
   min-width: 10rem;
-  max-width: 20rem;
+  max-width: 25rem;
   width: 100%;
 }
 
@@ -41,12 +41,12 @@ label.hidden-input-label {
   text-transform: uppercase;
 }
 
-.available-box ~ label {
+.available-box-input ~ label {
   cursor: pointer;
   color: #222;
 }
 
-.available-box:disabled ~ label {
+.available-box-input:disabled ~ label {
   cursor: default;
 } 
 
