@@ -85,3 +85,7 @@ label.hidden-input-label {
   border-right: none;
   border-bottom: none;
 }
+
+.win {
+  background-color: #009719 !important;
+}

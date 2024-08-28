@@ -3,8 +3,8 @@ export default function addStartGame() {
   const avaiblableInputs =document.querySelectorAll(".available-box-input");
 
   startButton.addEventListener("click", () => {
-    console.log("trigged")
-    console.log(avaiblableInputs)
+    startButton.setAttribute("disabled", true);
+    
     avaiblableInputs.forEach(input => {
       input.removeAttribute("disabled")
     })
