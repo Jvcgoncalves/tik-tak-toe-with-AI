@@ -1,4 +1,5 @@
 import checkWinner from "../handleWinner/handleWinner.js";
+import SmartAgent from "../SmartAgent/SmartAgent.js";
 
 let availableChoices = [
   [0,0,0],
@@ -26,15 +27,23 @@ function handleUserClick(event) {
 
     inputFromLabel.setAttribute("disabled", true);
     
-    availableChoices[line][column] = currentPlayer === 1 ? 1 : 2;
-    labelTrigged.innerText = currentPlayer === 1 ? "X" : "O";
+    availableChoices[line][column] = 1;
+    labelTrigged.innerText = "X";
     labelTrigged.removeEventListener("click", handleUserClick);
 
     if(checkWinner(availableChoices, currentPlayer)) {
       return;
+    } else {
+      currentPlayer = 2;
     }
 
-    currentPlayer = currentPlayer === 1 ? 2 : 1;
+    callSmartAgent();
+    
+    if(checkWinner(availableChoices, currentPlayer)) {
+      return;
+    } else {
+      currentPlayer = 1;
+    }
   }
 }
 
@@ -65,4 +74,16 @@ export function addResetGame() {
 
     startButton.removeAttribute("disabled");
   })
+}
+
+function callSmartAgent() {
+  const [ smartAgentMoveLine, smartAgentMoveColumn ] = SmartAgent.gameMove(availableChoices);
+  const input = document.querySelector(`input[data-board-position="${smartAgentMoveLine}.${smartAgentMoveColumn}"]`)
+
+  const labelToFill = document.querySelector(`label[for="${input.id}"]`);
+
+  availableChoices[smartAgentMoveLine][smartAgentMoveColumn] = 2
+  
+  labelToFill.innerText = "O";
+  labelToFill.removeEventListener("click", handleUserClick);
 }
